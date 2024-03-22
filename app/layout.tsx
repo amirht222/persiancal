@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 // const inter = Inter({ subsets: ["latin"] });
 
 const iranSans = localFont({
-  src: "./fonts/woff2/IRANSansWeb_Medium.woff2",
+  src: "../public/fonts/woff2/IRANSansWeb_Medium.woff2",
   display: "swap",
 });
 

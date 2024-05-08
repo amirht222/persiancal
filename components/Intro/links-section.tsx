@@ -3,7 +3,7 @@ import PersiaLink from "./persia/persia-link";
 
 export default function LinksSection() {
   return (
-    <section className="flex flex-col md:flex-row justify-between gap-4">
+    <section className="flex flex-col sm:flex-row gap-4 p-6 lg:pr-0">
       <PersiaLink />
       <DatisLink />
     </section>

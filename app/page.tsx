@@ -3,6 +3,7 @@ import Image from "next/image";
 import MobileHeaderRec from "@/public/images/mobile-intro-header-bg.png";
 import MobileHeaderSystem from "@/public/images/mobile-intro-header-system.png";
 import DesktopImage from "@/public/images/desktop-sidebar-bg.png";
+import messages from "@/messages/fa.json";
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
       </div>
       <div className="grow">
         <p className="mt-10 text-center lg:text-xl">
-          برای ورود به هر مجموعه روی آن کلیک کنید.
+          {messages.statics.introMessage}
         </p>
         <div className="mt-4">
           <LinksSection />

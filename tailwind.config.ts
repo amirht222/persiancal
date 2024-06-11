@@ -20,6 +20,7 @@ const config: Config = {
       {
         mytheme: {
           primary: "#20AD95",
+          secondary: "#CFF8ED80",
         },
       },
       // "dark",

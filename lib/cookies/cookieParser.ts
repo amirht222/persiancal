@@ -1,6 +1,6 @@
-import { Cookie } from "@/lib/interfaces/cookies/Cookies";
+// import { Cookie } from "@/lib/interfaces/cookies/Cookies";
 
-export const cookieParser = async (str : string) : Promise<Cookie | undefined> => {
+export const cookieParser = async (str : string) : Promise<any | undefined> => {
     try {
         let reslut: any = new Object();
         const destructuredCookiesString = str.trim().split(';');
@@ -16,7 +16,7 @@ export const cookieParser = async (str : string) : Promise<Cookie | undefined> =
         if(destructuredCookiesString.includes(' HttpOnly')){
             reslut['httpOnly'] = true;
         }
-        const cookie: Cookie = {
+        const cookie: any = {
             key: reslut['key'],
             value: reslut['value'],
             httpOnly: reslut['httpOnly'],

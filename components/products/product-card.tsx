@@ -18,7 +18,7 @@ export default function ProductCard({
   return (
     <li className="card bg-base-100 border border-[#DCDCDC]">
       <figure>
-        <img src={`${apiURL}/${images[0].imageUrl}`} alt={title} />
+        <img src={`${apiURL}/${images[0]?.imageUrl}`} alt={title} />
       </figure>
       <div className="card-body items-center text-center p-4">
         <h4 className="card-title font-normal text-[#6B6B6B] text-base">

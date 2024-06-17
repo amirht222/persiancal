@@ -69,9 +69,12 @@ export default function Footer(props: Props) {
         <p className="text-sm mt-4">
           جهت برقراری ارتباط از طریق ایمیل زیر هم میتوانید
         </p>
-        <button className="rounded-lg bg-white py-2 px-4 mt-4 text-xs">
-          pershia azma@gmail.com
-        </button>
+        <a
+          href="mailto:persia.azmasystem1@gmail.com"
+          className="rounded-lg bg-white py-2 px-4 mt-4 text-xs"
+        >
+          persia.azmasystem1@gmail.com
+        </a>
       </div>
     </footer>
   );

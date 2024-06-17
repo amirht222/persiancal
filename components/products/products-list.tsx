@@ -9,20 +9,21 @@ interface Prop {
 }
 
 export default async function ProductsList({ searchParams }: Prop) {
-  const {
-    count,
-    message,
-    ok,
-    res: products,
-    status,
-  }: FetchResposne<ProductViewModel[]> = await getProducts(searchParams);
+  // const {
+  //   count,
+  //   message,
+  //   ok,
+  //   res: products,
+  //   status,
+  // }: FetchResposne<ProductViewModel[]> = await getProducts(searchParams);
 
   return (
     <ul className="mt-6 grid grid-cols-2 lg:grid-cols-6 gap-4">
-      {products &&
+      <li>test</li>
+      {/* {products &&
         products.map((product: ProductViewModel) => (
           <ProductCard {...product} key={product.id} />
-        ))}
+        ))} */}
     </ul>
   );
 }

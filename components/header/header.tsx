@@ -2,8 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import PersiaLogo from "@/public/images/logo-persiaazma.png";
+import DatisLogo from "@/public/images/datis-logo.png";
+import { CompanyName } from "@/lib/interfaces/general-types";
+import NavItem from "./nav-item";
 
-export default function Header() {
+interface Props {
+  companyName: CompanyName;
+}
+
+export default function Header(props: Props) {
   return (
     <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
       <div className="navbar">
@@ -30,117 +37,145 @@ export default function Header() {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link href="/persia">صفحه اصلی</Link>
+                <NavItem href="/">صفحه اصلی</NavItem>
+              </li>
+              <li>
+                <NavItem href="/persia">درباره ما</NavItem>
               </li>
               <li>
                 <details>
                   <summary>آزمایشگاه ها</summary>
                   <ul className="p-2">
                     <li>
-                      <Link href="/persia/labs/1">آزمایشگاه جرم و حجم</Link>
+                      <NavItem href="/persia/labs/1">
+                        آزمایشگاه جرم و حجم
+                      </NavItem>
                     </li>
                     <li>
-                      <Link href="/persia/labs/1">آزمایشگاه اندازه گیری</Link>
+                      <NavItem href="/persia/labs/1">
+                        آزمایشگاه اندازه گیری
+                      </NavItem>
                     </li>
                     <li>
-                      <Link href="/persia/labs/1">آزمایشگاه خون</Link>
+                      <NavItem href="/persia/labs/1">آزمایشگاه خون</NavItem>
                     </li>
                     <li>
-                      <Link href="/persia/labs/1">آزمایشگاه کالیبراسیون</Link>
+                      <NavItem href="/persia/labs/1">
+                        آزمایشگاه کالیبراسیون
+                      </NavItem>
                     </li>
                   </ul>
                 </details>
               </li>
               <li>
-                <Link href="/persia/certificates">تاییدیه ها</Link>
+                <NavItem href="/persia/certificates">تاییدیه ها</NavItem>
               </li>
               <li>
                 <details>
                   <summary>خدمات</summary>
                   <ul className="p-2">
                     <li>
-                      <Link href="/persia/courses">دوره ها</Link>
+                      <NavItem href="/persia/courses">دوره ها</NavItem>
                     </li>
                     <li>
-                      <Link href="/persia/products">محصولات</Link>
+                      <NavItem href="/persia/products">محصولات</NavItem>
                     </li>
                   </ul>
                 </details>
               </li>
               <li>
-                <Link href="/persia/customer-services">خدمات مشتری</Link>
+                <NavItem href="/persia/customer-services">خدمات مشتری</NavItem>
               </li>
               <li>
-                <Link href="/persia/feedback">نظرات و پیشنهاد ها</Link>
+                <NavItem href="/persia/feedback">نظرات و پیشنهاد ها</NavItem>
               </li>
+              {/* <li>
+                <NavItem href="/persia/about">درباره ما</NavItem>
+              </li> */}
               <li>
-                <Link href="/persia/about">درباره ما</Link>
-              </li>
-              <li>
-                <Link href="/persia/contact">تماس با ما</Link>
+                <a href="#footer">تماس با ما</a>
               </li>
             </ul>
           </div>
-          <Link href="/persia" className="btn btn-ghost text-xl">
-            <Image
-              className="object-contain w-40"
-              src={PersiaLogo}
-              alt="persia azma system logo"
-              priority
-            />
-          </Link>
+          {props.companyName === "PERSIA" && (
+            <Link href="/persia" className="btn btn-ghost text-xl">
+              <Image
+                className="object-contain w-40"
+                src={PersiaLogo}
+                alt="persia azma system logo"
+                priority
+              />
+            </Link>
+          )}
+          {props.companyName === "DATIS" && (
+            <Link href="/datis" className="btn btn-ghost text-xl">
+              <Image
+                className="object-contain w-28"
+                src={DatisLogo}
+                alt="datis logo"
+                priority
+              />
+            </Link>
+          )}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/persia">صفحه اصلی</Link>
+              <NavItem href="/">صفحه اصلی</NavItem>
+            </li>
+            <li>
+              <NavItem href="/persia">درباره ما</NavItem>
             </li>
             <li>
               <details>
                 <summary>آزمایشگاه ها</summary>
                 <ul className="p-2">
                   <li>
-                    <Link href="/persia/labs/1">آزمایشگاه جرم و حجم</Link>
+                    <NavItem href="/persia/labs/1">آزمایشگاه جرم و حجم</NavItem>
                   </li>
                   <li>
-                    <Link href="/persia/labs/1">آزمایشگاه اندازه گیری</Link>
+                    <NavItem href="/persia/labs/1">
+                      آزمایشگاه اندازه گیری
+                    </NavItem>
                   </li>
                   <li>
-                    <Link href="/persia/labs/1">آزمایشگاه خون</Link>
+                    <NavItem href="/persia/labs/1">آزمایشگاه خون</NavItem>
                   </li>
                   <li>
-                    <Link href="/persia/labs/1">آزمایشگاه کالیبراسیون</Link>
+                    <NavItem href="/persia/labs/1">
+                      آزمایشگاه کالیبراسیون
+                    </NavItem>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <Link href="/persia/certificates">تاییدیه ها</Link>
+              <NavItem href="/persia/certificates">تاییدیه ها</NavItem>
             </li>
             <li>
               <details>
                 <summary>خدمات</summary>
                 <ul className="p-2">
                   <li>
-                    <Link href="/persia/courses">دوره ها</Link>
+                    <NavItem href="/persia/courses">دوره ها</NavItem>
                   </li>
                   <li>
-                    <Link href="/persia/products">محصولات</Link>
+                    <NavItem href="/persia/products">محصولات</NavItem>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <Link href="/persia/customer-services">خدمات مشتری</Link>
+              <NavItem href="/persia/customer-services">خدمات مشتری</NavItem>
             </li>
             <li>
-              <Link href="/persia/feedback">نظرات و پیشنهاد ها</Link>
+              <NavItem href="/persia/feedback">نظرات و پیشنهاد ها</NavItem>
             </li>
+            {/* <li>
+              <NavItem href="/persia/about">درباره ما</NavItem>
+            </li> */}
             <li>
-              <Link href="/persia/about">درباره ما</Link>
-            </li>
-            <li>
-              <Link href="/persia/contact">تماس با ما</Link>
+              <a href="#footer">تماس با ما</a>
             </li>
           </ul>
         </div>

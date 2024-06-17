@@ -4,34 +4,69 @@ import { FaFax } from "react-icons/fa";
 import { MdMarkunreadMailbox } from "react-icons/md";
 import TestMap from "@/public/images/test-map.png";
 import Image from "next/image";
+import { CompanyName } from "@/lib/interfaces/general-types";
 
-export default function Footer() {
+interface Props {
+  companyName: CompanyName;
+}
+
+export default function Footer(props: Props) {
   return (
-    <footer className="bg-[#20AD95] p-6 flex items-center justify-between">
-      <ul className="flex flex-col gap-6">
-        <li className="flex items-center gap-2">
-          <IoLocationSharp size={24} className="text-white" />
-          <p className="text-xs">
-            شیراز، بلوار دکترحسابی، شهرک آرین، خیابان فناوری، پارک علم و فناوری،
-            ساختمان آپادانا، واحد 2109، شرکت پرشیا آزما سیستم
-          </p>
-        </li>
-        <li className="flex items-center gap-2">
-          <FaPhoneAlt size={24} className="text-white" />
-          <p className="text-xs">07136245649</p>
-        </li>
-        <li className="flex items-center gap-2">
-          <FaFax size={24} className="text-white" />
-          <p className="text-xs">07136245649</p>
-        </li>
-        <li className="flex items-center gap-2">
-          <MdMarkunreadMailbox size={24} className="text-white" />
-          <p className="text-xs">7197688757</p>
-        </li>
-      </ul>
-      <div>
+    <footer
+      id="footer"
+      className="bg-[#20AD95] p-10 flex items-center justify-between flex-col lg:flex-row gap-8"
+    >
+      {props.companyName === "PERSIA" && (
+        <ul className="flex flex-col gap-6">
+          <li className="flex items-center gap-2">
+            <IoLocationSharp size={24} className="text-white" />
+            <p className="text-lg">
+              شیراز، بلوار دکترحسابی، شهرک آرین، خیابان فناوری، پارک علم و
+              فناوری، ساختمان آپادانا، واحد 2109، شرکت پرشیا آزما سیستم
+            </p>
+          </li>
+          <li className="flex items-center gap-2">
+            <FaPhoneAlt size={24} className="text-white" />
+            <p className="text-lg">07136245649</p>
+          </li>
+          <li className="flex items-center gap-2">
+            <FaFax size={24} className="text-white" />
+            <p className="text-lg">07136245649</p>
+          </li>
+          <li className="flex items-center gap-2">
+            <MdMarkunreadMailbox size={24} className="text-white" />
+            <p className="text-lg">7197688757</p>
+          </li>
+        </ul>
+      )}
+
+      {props.companyName === "DATIS" && (
+        <ul className="flex flex-col gap-6">
+          <li className="flex items-center gap-2">
+            <IoLocationSharp size={24} className="text-white" />
+            <p className="text-lg">
+              شیراز، ورودی اول شهر صدرا، خیابان بیمارستان امیرالمومنین (ع)، پارک
+              فناوری سلامت شیراز، شرکت داتیس فناوری پرتو برتر
+            </p>
+          </li>
+          <li className="flex items-center gap-2">
+            <FaPhoneAlt size={24} className="text-white" />
+            <p className="text-lg">07132346668</p>
+          </li>
+          <li className="flex items-center gap-2">
+            <FaFax size={24} className="text-white" />
+            <p className="text-lg">07132346669</p>
+          </li>
+          <li className="flex items-center gap-2">
+            <MdMarkunreadMailbox size={24} className="text-white" />
+            <p className="text-lg">7198760009</p>
+          </li>
+        </ul>
+      )}
+
+      <div className="flex flex-col items-center">
         <Image src={TestMap} alt="map" />
-        <p className="text-[10px] mt-4">
+        <p className="text-sm mt-4">
           جهت برقراری ارتباط از طریق ایمیل زیر هم میتوانید
         </p>
         <button className="rounded-lg bg-white py-2 px-4 mt-4 text-xs">

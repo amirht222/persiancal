@@ -40,7 +40,9 @@ export default function Header(props: Props) {
                 <NavItem href="/">صفحه اصلی</NavItem>
               </li>
               <li>
-                <NavItem href="/persia">درباره ما</NavItem>
+                <NavItem href={`/${props.companyName.toLowerCase()}`}>
+                  درباره ما
+                </NavItem>
               </li>
               <li>
                 <details>
@@ -120,7 +122,9 @@ export default function Header(props: Props) {
               <NavItem href="/">صفحه اصلی</NavItem>
             </li>
             <li>
-              <NavItem href="/persia">درباره ما</NavItem>
+              <NavItem href={`/${props.companyName.toLowerCase()}`}>
+                درباره ما
+              </NavItem>
             </li>
             <li>
               <details>

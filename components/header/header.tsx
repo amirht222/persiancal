@@ -47,47 +47,43 @@ export default function Header(props: Props) {
                   <summary>آزمایشگاه ها</summary>
                   <ul className="p-2">
                     <li>
-                      <NavItem href="/persia/labs/1">
-                        آزمایشگاه جرم و حجم
-                      </NavItem>
+                      <button disabled>آزمایشگاه جرم و حجم</button>
                     </li>
                     <li>
-                      <NavItem href="/persia/labs/1">
-                        آزمایشگاه اندازه گیری
-                      </NavItem>
+                      <button disabled>آزمایشگاه اندازه گیری</button>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavItem href="/persia/labs/1">آزمایشگاه خون</NavItem>
                     </li>
                     <li>
                       <NavItem href="/persia/labs/1">
                         آزمایشگاه کالیبراسیون
                       </NavItem>
-                    </li>
+                    </li> */}
                   </ul>
                 </details>
               </li>
               <li>
-                <NavItem href="/persia/certificates">تاییدیه ها</NavItem>
+                <button disabled>تاییدیه ها</button>
               </li>
               <li>
                 <details>
                   <summary>خدمات</summary>
                   <ul className="p-2">
                     <li>
-                      <NavItem href="/persia/courses">دوره ها</NavItem>
+                      <button disabled>دوره ها</button>
                     </li>
                     <li>
-                      <NavItem href="/persia/products">محصولات</NavItem>
+                      <button disabled>محصولات</button>
                     </li>
                   </ul>
                 </details>
               </li>
               <li>
-                <NavItem href="/persia/customer-services">خدمات مشتری</NavItem>
+                <button disabled>خدمات مشتری</button>
               </li>
               <li>
-                <NavItem href="/persia/feedback">نظرات و پیشنهاد ها</NavItem>
+                <button disabled>نظرات و پیشنهاد ها</button>
               </li>
               {/* <li>
                 <NavItem href="/persia/about">درباره ما</NavItem>
@@ -131,45 +127,43 @@ export default function Header(props: Props) {
                 <summary>آزمایشگاه ها</summary>
                 <ul className="p-2">
                   <li>
-                    <NavItem href="/persia/labs/1">آزمایشگاه جرم و حجم</NavItem>
+                    <button disabled>آزمایشگاه جرم و حجم</button>
                   </li>
                   <li>
-                    <NavItem href="/persia/labs/1">
-                      آزمایشگاه اندازه گیری
-                    </NavItem>
+                    <button disabled>آزمایشگاه اندازه گیری</button>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavItem href="/persia/labs/1">آزمایشگاه خون</NavItem>
                   </li>
                   <li>
                     <NavItem href="/persia/labs/1">
                       آزمایشگاه کالیبراسیون
                     </NavItem>
-                  </li>
+                  </li> */}
                 </ul>
               </details>
             </li>
             <li>
-              <NavItem href="/persia/certificates">تاییدیه ها</NavItem>
+              <button disabled>تاییدیه ها</button>
             </li>
             <li>
               <details>
                 <summary>خدمات</summary>
                 <ul className="p-2">
                   <li>
-                    <NavItem href="/persia/courses">دوره ها</NavItem>
+                    <button disabled>دوره ها</button>
                   </li>
                   <li>
-                    <NavItem href="/persia/products">محصولات</NavItem>
+                    <button disabled>محصولات</button>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <NavItem href="/persia/customer-services">خدمات مشتری</NavItem>
+              <button disabled>خدمات مشتری</button>
             </li>
             <li>
-              <NavItem href="/persia/feedback">نظرات و پیشنهاد ها</NavItem>
+              <button disabled>نظرات و پیشنهاد ها</button>
             </li>
             {/* <li>
               <NavItem href="/persia/about">درباره ما</NavItem>

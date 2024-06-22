@@ -1,4 +1,4 @@
-import { getProducts } from "@/lib/actions/products/productsActions";
+// import { getProducts } from "@/lib/actions/products/productsActions";
 import ProductCard from "./product-card";
 import { ProductsSearchParams } from "@/lib/interfaces/products/ProductsSearchParams";
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";

@@ -1,27 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import PersiaLogo from "@/public/images/logo-persiaazma.png";
 import DatisLogo from "@/public/images/datis-logo.png";
 import { CompanyName } from "@/lib/interfaces/general-types";
 import NavItem from "./nav-item";
-import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
-import { LabViewModel } from "@/lib/interfaces/labs/LabViewModel";
-import { getLabs } from "@/lib/actions/labs/labsActions";
+import LabMenu from "./lab-menu";
 
 interface Props {
   companyName: CompanyName;
 }
 
 export default async function Header(props: Props) {
-  const {
-    count,
-    message,
-    ok,
-    res: labs,
-    status,
-  }: FetchResposne<LabViewModel[]> = await getLabs();
-
   return (
     <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
       <div className="navbar">
@@ -54,19 +44,9 @@ export default async function Header(props: Props) {
                 <NavItem href="/persia">درباره ما</NavItem>
               </li>
               <li>
-                <details>
-                  <summary>آزمایشگاه ها</summary>
-                  <ul className="p-2">
-                    {labs &&
-                      labs.map((lab) => (
-                        <li key={lab.id}>
-                          <NavItem href={`/persia/labs/${lab.id}`}>
-                            {lab.name}
-                          </NavItem>
-                        </li>
-                      ))}
-                  </ul>
-                </details>
+                <Suspense fallback={<p>loading...</p>}>
+                  <LabMenu />
+                </Suspense>
               </li>
               <li>
                 <NavItem href="/persia/certificates">تاییدیه ها</NavItem>
@@ -128,19 +108,9 @@ export default async function Header(props: Props) {
               <NavItem href="/persia">درباره ما</NavItem>
             </li>
             <li>
-              <details>
-                <summary>آزمایشگاه ها</summary>
-                <ul className="p-2">
-                  {labs &&
-                    labs.map((lab) => (
-                      <li key={lab.id}>
-                        <NavItem href={`/persia/labs/${lab.id}`}>
-                          {lab.name}
-                        </NavItem>
-                      </li>
-                    ))}
-                </ul>
-              </details>
+              <Suspense fallback={<p>loading...</p>}>
+                <LabMenu />
+              </Suspense>
             </li>
             <li>
               <NavItem href="/persia/certificates">تاییدیه ها</NavItem>

@@ -6,7 +6,7 @@ interface Prop {
 }
 const apiURL: string = process.env.API_URL!;
 export default function ProductCard({
-  images,
+  productImages,
   createdAt,
   description,
   id,
@@ -18,7 +18,7 @@ export default function ProductCard({
     <li className="card bg-base-100 border border-[#DCDCDC]">
       <figure>
         <img
-          src={images ? `${apiURL}/${images[0]?.imageUrl}` : undefined}
+          src={productImages ? `${apiURL}/${productImages[0]?.imageUrl}` : undefined}
           alt={title}
         />
       </figure>

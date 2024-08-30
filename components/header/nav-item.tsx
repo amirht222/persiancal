@@ -14,6 +14,11 @@ export default function NavItem({ children, href }: Props) {
 
   return (
     <Link
+      onClick={() => {
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      }}
       href={href}
       className={`${pathname === href ? "text-primary" : "text-inherit"}`}
     >

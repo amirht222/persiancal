@@ -5,7 +5,7 @@ export interface ProductViewModel {
   productStatus?: number;
   createdAt?: string;
   updatedAt?: string;
-  images: Image[];
+  productImages: Image[];
 }
 interface Image {
   imageUrl: string;

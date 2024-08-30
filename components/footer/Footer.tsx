@@ -1,10 +1,8 @@
-import { IoLocationSharp } from "react-icons/io5";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaFax } from "react-icons/fa";
-import { MdMarkunreadMailbox } from "react-icons/md";
-import TestMap from "@/public/images/test-map.png";
-import Image from "next/image";
 import { CompanyName } from "@/lib/interfaces/general-types";
+import { FaFax, FaPhoneAlt } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
+import { MdMarkunreadMailbox } from "react-icons/md";
+import LeafletMap from "./leaflet-map";
 
 interface Props {
   companyName: CompanyName;
@@ -65,7 +63,7 @@ export default function Footer(props: Props) {
       )}
 
       <div className="flex flex-col items-center">
-        <Image src={TestMap} alt="map" />
+        <LeafletMap />
         <p className="text-sm mt-4">
           جهت برقراری ارتباط از طریق ایمیل زیر هم میتوانید
         </p>

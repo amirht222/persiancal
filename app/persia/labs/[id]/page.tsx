@@ -11,33 +11,34 @@ export default async function LabPage({ params }: { params: { id: string } }) {
     status,
   }: FetchResposne<LabViewModel> = await getLabById(params.id);
   const apiURL: string = process.env.API_URL!;
-  console.log(lab);
 
   return (
     <div className="container mx-auto px-16">
       {lab && (
         <>
           <h2 className="font-bold">{lab.name}</h2>
-          <div className="flex flex-col items-center lg:flex-row gap-4">
+          <div className="flex justify-center items-center mt-4">
             <img
-              className="w-1/2 aspect-square object-cover"
+              className="w-1/2 aspect-square object-cover  max-h-80"
               src={
                 lab.labImages ? `${apiURL}/${lab.labImages[0]?.imageUrl}` : ""
               }
               alt="lab main image"
             />
-            <p>{lab.description}</p>
           </div>
+          <h2 className="font-bold mt-4">توضیحات :</h2>
+          <p>{lab.description}</p>
 
-          <h3>تصاویر آزمایشگاه</h3>
-          <div className="flex items-center">
+          <h3 className="font-bold mt-6">تصاویر آزمایشگاه</h3>
+          <div className="grid grid-cols-6 gap-6 justify-center mt-4">
             {lab.labImages?.map((image) => (
-              <img
-                className="h-60 object-cover aspect-square"
-                key={image.imageUrl}
-                src={`${apiURL}/${image.imageUrl}`}
-                alt="lab image"
-              />
+              <div key={image.imageUrl}>
+                <img
+                  className="h-60 object-cover aspect-square"
+                  src={`${apiURL}/${image.imageUrl}`}
+                  alt="lab image"
+                />
+              </div>
             ))}
           </div>
         </>

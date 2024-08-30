@@ -24,9 +24,11 @@ export default function CourseBox({
               <CourseDescriptionDialog description={description} />
             </>
           )}
-          <button className="btn btn-primary text-white text-xl font-normal px-8">
-            تماس
-          </button>
+          <a href="tel:+07136245649">
+            <button className="btn btn-primary text-white text-xl font-normal px-8">
+              تماس
+            </button>
+          </a>
         </div>
       </div>
     </li>

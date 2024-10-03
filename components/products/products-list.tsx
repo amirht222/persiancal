@@ -16,7 +16,11 @@ export default async function ProductsList({ searchParams }: Prop) {
     ok,
     res: products,
     status,
-  }: FetchResposne<ProductViewModel[]> = await getProducts(searchParams);
+  }: FetchResposne<ProductViewModel[]> = await getProducts({
+    ...searchParams,
+    productStatus: 2,
+    provider: "persia",
+  });
 
   return (
     <>

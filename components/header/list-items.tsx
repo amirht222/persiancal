@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import NavItem from "./nav-item";
 import LabMenu from "./lab-menu";
+import CustomerServiceBtn from "./customer-service-btn";
+import CustomerLoginModal from "./CustomerLoginModal";
 
 export default function ListItems({ companyName }: { companyName: string }) {
   return (
@@ -38,17 +40,18 @@ export default function ListItems({ companyName }: { companyName: string }) {
           </ul>
         </details>
       </li>
-      <li>
-        <NavItem href={`/${companyName}/customer-services`}>
-          خدمات مشتری
-        </NavItem>
-      </li>
+      {companyName === "persia" && (
+        <li>
+          <CustomerServiceBtn />
+        </li>
+      )}
       <li>
         <NavItem href={`/${companyName}/feedback`}>نظرات و پیشنهاد ها</NavItem>
       </li>
       <li>
         <a href="#footer">تماس با ما</a>
       </li>
+      <CustomerLoginModal />
     </>
   );
 }

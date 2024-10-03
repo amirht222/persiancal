@@ -8,14 +8,18 @@ interface Props {
   searchParams: CoursesSearchParams;
 }
 
-export default async function CoursesList() {
+export default async function CoursesList({ searchParams }: Props) {
   const {
     count,
     message,
     ok,
     res: courses,
     status,
-  }: FetchResposne<CourseViewModel[]> = await getCourses();
+  }: FetchResposne<CourseViewModel[]> = await getCourses({
+    ...searchParams,
+    courseStatus: 1,
+    provider: "persia",
+  });
 
   return (
     <ul className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">

@@ -14,7 +14,7 @@ export default function Header({ companyName }: Props) {
 
   return (
     <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
-      <div className="navbar">
+      <div className="navbar justify-between">
         <div className="navbar-start w-full lg:w-1/2 justify-between lg:justify-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

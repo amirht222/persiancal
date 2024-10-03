@@ -8,13 +8,13 @@ const apiURL: string = process.env.API_URL!;
 const getLabs = async () => {
   const endpoint = "lab/getList";
   const method = "GET";
-  // const query = serializeParams(searchParams);
-  return await baseFetch(apiURL, endpoint, method, null, null);
+  const query = serializeParams({ labStatus: 1 });
+  return await baseFetch(apiURL, endpoint, method, null, query);
 };
 const getLabById = async (labId: string) => {
   const endpoint = `lab/getById/${labId}`;
   const method = "GET";
-  // const query = serializeParams(searchParams);
+  // const query = serializeParams({ labStatus: 1 });
   return await baseFetch(apiURL, endpoint, method, null, null);
 };
 

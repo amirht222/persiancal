@@ -6,11 +6,11 @@ import { serializeParams } from "@/lib/serializeParams/serializeParams";
 
 const apiURL: string = process.env.API_URL!;
 
-const getCourses = async () => {
+const getCourses = async (searchParams: CoursesSearchParams) => {
   const endpoint = "course/getList";
   const method = "GET";
-  // const query = serializeParams(searchParams);
-  return await baseFetch(apiURL, endpoint, method, null, "");
+  const query = serializeParams(searchParams);
+  return await baseFetch(apiURL, endpoint, method, null, query);
 };
 
 export { getCourses };

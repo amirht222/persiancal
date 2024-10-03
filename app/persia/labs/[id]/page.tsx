@@ -16,19 +16,9 @@ export default async function LabPage({ params }: { params: { id: string } }) {
     <div className="container mx-auto px-16">
       {lab && (
         <>
-          <h2 className="font-bold">{lab.name}</h2>
-          <div className="flex justify-center items-center mt-4">
-            <img
-              className="w-1/2 aspect-square object-cover  max-h-80"
-              src={
-                lab.labImages ? `${apiURL}/${lab.labImages[0]?.imageUrl}` : ""
-              }
-              alt="lab main image"
-            />
-          </div>
+          <h2 className="font-bold">نام آزمایشگاه: {lab.name}</h2>
           <h2 className="font-bold mt-4">توضیحات :</h2>
           <p>{lab.description}</p>
-
           <h3 className="font-bold mt-6">تصاویر آزمایشگاه</h3>
           <div className="grid grid-cols-6 gap-6 justify-center mt-4">
             {lab.labImages?.map((image) => (
@@ -46,3 +36,4 @@ export default async function LabPage({ params }: { params: { id: string } }) {
     </div>
   );
 }
+

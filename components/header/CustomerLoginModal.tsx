@@ -3,6 +3,7 @@
 import { login } from "@/lib/actions/auth/authActions";
 import { useForm } from "react-hook-form";
 import CryptoJS from "crypto-js";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
   username: string;
@@ -11,6 +12,7 @@ type Inputs = {
 
 export default function CustomerLoginModal() {
   const { handleSubmit, register } = useForm<Inputs>();
+  const router = useRouter();
 
   const submitHandler = async (data: Inputs) => {
     try {
@@ -18,6 +20,9 @@ export default function CustomerLoginModal() {
         username: data.username,
         password: CryptoJS.SHA256(data.password).toString(),
       });
+      if (res.ok) {
+        router.push("/persia/user-files");
+      }
     } catch (error) {}
   };
 

@@ -17,10 +17,12 @@ const login = async ({
     return response;
   }
   const endpoint = "auth/login";
-  const method = "GET";
+  const method = "POST";
   return await baseFetch(apiURL, endpoint, method, { username, password });
 };
 const logout = () => {};
 const getUserInfo = () => {
   const cookie = cookies().get("token");
 };
+
+export { login };

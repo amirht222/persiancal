@@ -18,7 +18,20 @@ const login = async ({
   }
   const endpoint = "auth/login";
   const method = "POST";
-  return await baseFetch(apiURL, endpoint, method, { username, password });
+  const response = await baseFetch(apiURL, endpoint, method, {
+    username,
+    password,
+  });
+  if (response.ok) {
+    cookies().set({
+      name: "token",
+      value: response.res,
+      httpOnly: true,
+      path: "/",
+      secure: true,
+    });
+  }
+  return response;
 };
 const logout = () => {};
 const getUserInfo = () => {

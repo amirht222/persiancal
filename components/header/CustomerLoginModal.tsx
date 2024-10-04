@@ -1,10 +1,30 @@
 "use client";
 
+import { login } from "@/lib/actions/auth/authActions";
+import { useForm } from "react-hook-form";
+import CryptoJS from "crypto-js";
+
+type Inputs = {
+  username: string;
+  password: string;
+};
+
 export default function CustomerLoginModal() {
+  const { handleSubmit, register } = useForm<Inputs>();
+
+  const submitHandler = async (data: Inputs) => {
+    try {
+      const res = await login({
+        username: data.username,
+        password: CryptoJS.SHA256(data.password).toString(),
+      });
+    } catch (error) {}
+  };
+
   return (
     <dialog id="customer_login_modal" className="modal">
       <div className="modal-box">
-        <form>
+        <form noValidate onSubmit={handleSubmit(submitHandler)}>
           <label className="input input-bordered flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +34,12 @@ export default function CustomerLoginModal() {
             >
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
             </svg>
-            <input type="text" className="grow" placeholder="نام کاربری" />
+            <input
+              {...register("username")}
+              type="text"
+              className="grow"
+              placeholder="نام کاربری"
+            />
           </label>
           <label className="mt-4 input input-bordered flex items-center gap-2">
             <svg
@@ -29,16 +54,21 @@ export default function CustomerLoginModal() {
                 clipRule="evenodd"
               />
             </svg>
-            <input type="password" className="grow" placeholder="رمز عبور" />
+            <input
+              {...register("password")}
+              type="password"
+              className="grow"
+              placeholder="رمز عبور"
+            />
           </label>
           <div className="modal-action">
             <button type="submit" className="btn btn-primary text-white">
               ورود
             </button>
-            <form method="dialog">
-              <button className="btn btn-error text-white mr-2">بستن</button>
-            </form>
           </div>
+        </form>
+        <form method="dialog">
+          <button className="btn btn-error text-white mr-2">بستن</button>
         </form>
       </div>
     </dialog>

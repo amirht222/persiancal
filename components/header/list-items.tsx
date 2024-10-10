@@ -13,7 +13,7 @@ export default function ListItems({ companyName }: { companyName: string }) {
       <li>
         <NavItem href={`/${companyName}`}>درباره ما</NavItem>
       </li>
-      {companyName === "persia" && (
+      {/* {companyName === "persia" && (
         <li>
           <Suspense
             fallback={
@@ -23,7 +23,7 @@ export default function ListItems({ companyName }: { companyName: string }) {
             <LabMenu />
           </Suspense>
         </li>
-      )}
+      )} */}
       <li>
         <NavItem href={`/${companyName}/certificates`}>تاییدیه ها</NavItem>
       </li>

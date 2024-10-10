@@ -2,17 +2,16 @@
 
 import { baseFetch } from "@/lib/baseFetch/baseFetch";
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
+import { cookies } from "next/headers";
 
 const apiURL: string = process.env.API_URL!;
 
-const getUserInfo = async ({ username }: { username: string }) => {
-  if (!username) {
-    const response: FetchResposne<any> = { ok: false };
-    return response;
-  }
-  const endpoint = "user/getByUsername/" + username;
+const getUserInfo = async () => {
+  const endpoint = "user/getByUsername";
   const method = "GET";
-  return await baseFetch(apiURL, endpoint, method);
+  const token = cookies().get("token");
+  const response = await baseFetch(apiURL, endpoint, method);
+  return { authorized: !!token, ...response };
 };
 
 export { getUserInfo };

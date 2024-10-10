@@ -1,3 +1,4 @@
+"use server";
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
 import { cookies } from "next/headers";
 import { cookieParser } from "../cookies/cookieParser";
@@ -9,10 +10,11 @@ export const baseFetch = async (
   model: any = null,
   query: string | null = ""
 ) => {
-  const cookieStore = cookies();
+  const token = cookies().get("token");
 
   const headers: HeadersInit = {
     "Content-Type": "application/json",
+    authorization: `Bearer ${token?.value}`,
   };
 
   const options: RequestInit = {

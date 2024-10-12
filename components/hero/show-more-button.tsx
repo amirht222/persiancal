@@ -5,7 +5,7 @@ export default function ShowMoreButton() {
     <button
       onClick={() =>
         (
-          document.getElementById("persia_desc_modal") as HTMLDialogElement
+          document.getElementById("provider_about_modal") as HTMLDialogElement
         ).showModal()
       }
       className="btn btn-primary rounded-[10px] text-white mt-4 lg:mt-6"

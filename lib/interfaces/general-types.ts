@@ -1,1 +1,1 @@
-export type CompanyName = "PERSIA" | "DATIS";
+export type Provider = "persia" | "datis";

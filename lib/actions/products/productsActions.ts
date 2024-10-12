@@ -12,5 +12,11 @@ const getProducts = async (searchParams: ProductsSearchParams) => {
   const query = serializeParams(searchParams);
   return await baseFetch(apiURL, endpoint, method, null, query);
 };
+const getProductById = async (productId: string) => {
+  const endpoint = `product/getById/${productId}`;
+  const method = "GET";
+  // const query = serializeParams({ labStatus: 1 });
+  return await baseFetch(apiURL, endpoint, method, null, null);
+};
 
-export { getProducts };
+export { getProducts,getProductById };

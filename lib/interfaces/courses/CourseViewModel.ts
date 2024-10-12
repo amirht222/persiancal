@@ -4,6 +4,8 @@ export interface CourseViewModel {
   description?: string;
   provider?: string;
   duration?: number;
+  attachmentPath?: string;
+  imagePath?: string;
   courseStatus?: number;
   createdAt?: string;
   updatedAt?: string;

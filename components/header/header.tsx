@@ -1,4 +1,4 @@
-import { CompanyName } from "@/lib/interfaces/general-types";
+import { Provider } from "@/lib/interfaces/general-types";
 import DatisLogo from "@/public/images/datis-logo.png";
 import PersiaLogo from "@/public/images/logo-persiaazma.png";
 import Image from "next/image";
@@ -6,14 +6,12 @@ import Link from "next/link";
 import ListItems from "./list-items";
 
 interface Props {
-  companyName: CompanyName;
+  provider: Provider;
 }
 
-export default function Header({ companyName }: Props) {
-  const lowerCaseCompanyName = companyName.toLowerCase();
-
+export default function Header({ provider }: Props) {
   return (
-    <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
+    <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)] z-50">
       <div className="navbar justify-between">
         <div className="navbar-start w-full lg:w-1/2 justify-between lg:justify-start">
           <div className="dropdown">
@@ -37,10 +35,10 @@ export default function Header({ companyName }: Props) {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <ListItems companyName={lowerCaseCompanyName} />
+              <ListItems provider={provider} />
             </ul>
           </div>
-          {lowerCaseCompanyName === "persia" && (
+          {provider === "persia" && (
             <Link href="/persia" className="btn btn-ghost text-xl">
               <Image
                 className="object-contain w-40"
@@ -50,7 +48,7 @@ export default function Header({ companyName }: Props) {
               />
             </Link>
           )}
-          {lowerCaseCompanyName === "datis" && (
+          {provider === "datis" && (
             <Link href="/datis" className="btn btn-ghost text-xl">
               <Image
                 className="object-contain w-28"
@@ -63,7 +61,7 @@ export default function Header({ companyName }: Props) {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <ListItems companyName={lowerCaseCompanyName} />
+            <ListItems provider={provider} />
           </ul>
         </div>
       </div>

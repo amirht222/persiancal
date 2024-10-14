@@ -3,7 +3,7 @@ export interface CertificateViewModel {
   title?: string;
   description?: string;
   provider?: string;
-  filePath?: number;
+  filePath?: string;
   createdAt?: string;
   updatedAt?: string;
 }

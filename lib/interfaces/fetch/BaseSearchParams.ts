@@ -1,6 +1,6 @@
 export interface BaseSearchParams {
-    limit?:  number;
-    page?:  number;
-    sortOn?: string;
-    isAscending?: boolean;
+  itemPerPage?: number;
+  currentPage?: number;
+  sortOn?: string;
+  isAscending?: boolean;
 }

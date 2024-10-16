@@ -1,4 +1,5 @@
 import ProviderActivities from "@/components/activities/activities";
+import CustomerLoginModal from "@/components/header/CustomerLoginModal";
 import ProviderHero from "@/components/hero/hero";
 import { getProviderByTitle } from "@/lib/actions/providers/providerActions";
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
@@ -20,8 +21,6 @@ export default async function ProviderPage({
     params.provider
   );
 
-  console.log("222222222222222", providerData);
-
   return (
     <div className="container mx-auto px-6 lg:px-10">
       {providerData && (
@@ -30,6 +29,7 @@ export default async function ProviderPage({
           <ProviderActivities activities={providerData?.providerActivities} />
         </>
       )}
+      <CustomerLoginModal />
     </div>
   );
 }

@@ -11,7 +11,7 @@ interface Props {
 
 export default function Header({ provider }: Props) {
   return (
-    <header className="shadow-[0_0_10px_0_rgba(0,0,0,0.3)] z-50">
+    <header className="bg-white shadow-[0_0_10px_0_rgba(0,0,0,0.3)] z-50 sticky top-0">
       <div className="navbar justify-between">
         <div className="navbar-start w-full lg:w-1/2 justify-between lg:justify-start">
           <div className="dropdown">

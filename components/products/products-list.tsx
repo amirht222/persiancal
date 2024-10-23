@@ -4,12 +4,14 @@ import { ProductsSearchParams } from "@/lib/interfaces/products/ProductsSearchPa
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
 import { ProductViewModel } from "@/lib/interfaces/products/ProductViewModel";
 import ProductsPagination from "./products-pagination";
+import { Provider } from "@/lib/interfaces/general-types";
 
 interface Prop {
   searchParams: ProductsSearchParams;
+  provider: Provider;
 }
 
-export default async function ProductsList({ searchParams }: Prop) {
+export default async function ProductsList({ searchParams, provider }: Prop) {
   const {
     count,
     message,
@@ -17,9 +19,11 @@ export default async function ProductsList({ searchParams }: Prop) {
     res: products,
     status,
   }: FetchResposne<ProductViewModel[]> = await getProducts({
+    itemPerPage: 18,
+    currentPage: 1,
     ...searchParams,
     productStatus: 2,
-    provider: "persia",
+    provider: provider,
   });
 
   return (
@@ -31,7 +35,9 @@ export default async function ProductsList({ searchParams }: Prop) {
           ))}
       </ul>
 
-      {/* {products && <ProductsPagination />} */}
+      {products && count && count > 18 && (
+        <ProductsPagination productsCount={count} />
+      )}
     </>
   );
 }

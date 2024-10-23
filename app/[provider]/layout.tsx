@@ -1,4 +1,5 @@
 import Footer from "@/components/footer/Footer";
+import CustomerLoginModal from "@/components/header/CustomerLoginModal";
 import Header from "@/components/header/header";
 import Spinner from "@/components/loading";
 import { Provider } from "@/lib/interfaces/general-types";
@@ -23,6 +24,7 @@ export default function ProviderLayout({
       <Suspense fallback={<Spinner />}>
         <Footer provider={params.provider} />
       </Suspense>
+      <CustomerLoginModal />
     </div>
   );
 }

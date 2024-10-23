@@ -3,6 +3,7 @@
 import { baseFetch } from "@/lib/baseFetch/baseFetch";
 import { FetchResposne } from "@/lib/interfaces/fetch/FetchResponse";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 const apiURL: string = process.env.API_URL!;
 
 const login = async ({
@@ -33,9 +34,13 @@ const login = async ({
   }
   return response;
 };
-const logout = () => {};
+const logout = () => {
+  cookies().delete("jwt");
+  cookies().delete("token");
+  redirect("/");
+};
 const getUserInfo = () => {
   const cookie = cookies().get("token");
 };
 
-export { login };
+export { login, logout };

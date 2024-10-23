@@ -1,5 +1,5 @@
 import { ProductViewModel } from "@/lib/interfaces/products/ProductViewModel";
-import Image from "next/image";
+import PersiaLogo from "@/public/images/logo.png";
 
 interface Prop {
   product: ProductViewModel;
@@ -18,7 +18,14 @@ export default function ProductCard({
     <li className="card bg-base-100 border border-[#DCDCDC]">
       <figure>
         <img
-          src={productImages ? `${apiURL}/${productImages[0]?.imageUrl}` : undefined}
+          src={
+            productImages.length > 0
+              ? `${apiURL}/${productImages[0]?.imageUrl}`
+              : PersiaLogo.src
+          }
+          className={`w-full h-36 ${
+            productImages.length > 0 ? "object-cover" : "object-contain"
+          }`}
           alt={title}
         />
       </figure>

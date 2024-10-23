@@ -29,7 +29,6 @@ export default async function ProviderPage({
           <ProviderActivities activities={providerData?.providerActivities} />
         </>
       )}
-      <CustomerLoginModal />
     </div>
   );
 }

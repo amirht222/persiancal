@@ -9,13 +9,13 @@ import Spinner from "@/components/loading";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col lg:flex-row lg:items-center lg:justify-center lg:overflow-hidden">
-      <div className="hidden lg:block h-screen grow">
+      {/* <div className="hidden lg:block h-screen">
         <Image
           className="w-full h-[120%] object-cover scale-125 translate-x-40"
           src={DesktopImage}
           alt="mobile header background"
         />
-      </div>
+      </div> */}
       <div className="lg:hidden relative flex justify-center max-h-48">
         <Image
           className="w-full"

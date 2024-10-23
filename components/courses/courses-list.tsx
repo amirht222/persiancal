@@ -22,7 +22,7 @@ export default async function CoursesList({ searchParams }: Props) {
   });
 
   return (
-    <ul className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+    <ul className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24">
       {courses &&
         courses.map((course) => <CourseBox {...course} key={course.id} />)}
     </ul>

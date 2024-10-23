@@ -13,7 +13,7 @@ export default async function LinksSection() {
   }: FetchResposne<ProviderViewModel[]> = await getProviders();
 
   return (
-    <section className="flex flex-col sm:flex-row gap-4 p-6 lg:pr-0">
+    <section className="flex flex-col lg:flex-row gap-4 p-6 w-2/3 mx-auto">
       {providers?.reverse().map((provider) => (
         <ProviderLinkBox key={provider.providerTitle} {...provider} />
       ))}

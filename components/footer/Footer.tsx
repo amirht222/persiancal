@@ -31,7 +31,7 @@ export default async function Footer({ provider }: Props) {
   return (
     <footer
       id="footer"
-      className="bg-[#20AD95] p-10 flex items-center justify-between flex-col lg:flex-row gap-8"
+      className="bg-[#20AD95] p-8 flex items-center justify-between flex-col lg:flex-row gap-8"
     >
       <ul className="flex flex-col gap-6">
         <li className="flex items-center gap-2">
@@ -46,21 +46,19 @@ export default async function Footer({ provider }: Props) {
           <FaFax size={24} className="text-white" />
           <p className="text-lg">فکس: {providerData?.fax}</p>
         </li>
+        <li className="flex flex-col items-start">
+          <p className="text-base">
+            جهت برقراری ارتباط از طریق ایمیل زیر نیز میتوانید
+          </p>
+          <a
+            href={`mailto:${providerData?.email}`}
+            className="rounded-lg bg-white py-3 px-6 mt-4 text-lg"
+          >
+            {providerData?.email}
+          </a>
+        </li>
       </ul>
-
-      <div className="flex flex-col items-center">
-        {/* <LeafletMap /> */}
-        <Map />
-        <p className="text-sm mt-4">
-          جهت برقراری ارتباط از طریق ایمیل زیر هم میتوانید
-        </p>
-        <a
-          href={`mailto:${providerData?.email}`}
-          className="rounded-lg bg-white py-2 px-4 mt-4 text-xs"
-        >
-          {providerData?.email}
-        </a>
-      </div>
+      <Map />
     </footer>
   );
 }

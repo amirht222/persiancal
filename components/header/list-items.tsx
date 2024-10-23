@@ -1,12 +1,12 @@
-import { Suspense } from "react";
-import NavItem from "./nav-item";
-import LabMenu from "./lab-menu";
-import CustomerServiceBtn from "./customer-service-btn";
-import CustomerLoginModal from "./CustomerLoginModal";
 import { Provider } from "@/lib/interfaces/general-types";
+import { Suspense } from "react";
 import Spinner from "../loading";
+import AuthorizationCheck from "./AuthorizationCheck";
+import CustomerLoginModal from "./CustomerLoginModal";
+import LabMenu from "./lab-menu";
+import NavItem from "./nav-item";
 
-export default function ListItems({ provider }: { provider: Provider }) {
+export default async function ListItems({ provider }: { provider: Provider }) {
   return (
     <>
       <li>
@@ -48,7 +48,9 @@ export default function ListItems({ provider }: { provider: Provider }) {
       </li>
       {provider === "persia" && (
         <li>
-          <CustomerServiceBtn />
+          <Suspense fallback={<p>checking...</p>}>
+            <AuthorizationCheck provider={provider} />
+          </Suspense>
         </li>
       )}
       <li>
@@ -60,7 +62,6 @@ export default function ListItems({ provider }: { provider: Provider }) {
       <li>
         <a href="#footer">تماس با ما</a>
       </li>
-      <CustomerLoginModal />
     </>
   );
 }

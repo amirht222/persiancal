@@ -8,7 +8,12 @@ export default function DetailsDialog(props: Props) {
   return (
     <dialog id="provider_about_modal" className="modal">
       <div className="modal-box">
-        <p className="py-4">{props.providerData.aboutUs}</p>
+        <div
+          className="py-4"
+          dangerouslySetInnerHTML={{
+            __html: (props.providerData as any).aboutUs,
+          }}
+        />
         <ul className="list-disc px-2">
           {props.providerData.providerActivities?.map((activity) => (
             <li key={activity.id}>{activity.text}</li>

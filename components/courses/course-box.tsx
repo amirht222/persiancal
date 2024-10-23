@@ -1,8 +1,8 @@
-import Image from "next/image";
-import CourseImage from "@/public/images/course-image.png";
+import PersiaLogo from "@/public/images/logo.png";
+
 import { CourseViewModel } from "@/lib/interfaces/courses/CourseViewModel";
-import ShowCourseDescriptionButton from "./show-desc-btn";
 import CourseDescriptionDialog from "./course-description-dialog";
+import ShowCourseDescriptionButton from "./show-desc-btn";
 const apiURL: string = process.env.API_URL!;
 
 export default function CourseBox({
@@ -16,8 +16,10 @@ export default function CourseBox({
     <li className="card bg-secondary">
       <figure>
         <img
-          className="w-1/2 h-56 object-cover"
-          src={imagePath ? `${apiURL}/${imagePath}` : CourseImage.src}
+          className={`w-full h-56 ${
+            imagePath ? "object-cover" : "object-contain"
+          }`}
+          src={imagePath ? `${apiURL}/${imagePath}` : PersiaLogo.src}
           alt="عکس دوره"
         />
       </figure>

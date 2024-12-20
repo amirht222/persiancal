@@ -41,6 +41,7 @@ export default function Header({ provider }: Props) {
           {provider === "persia" && (
             <Link href="/persia" className="btn btn-ghost text-xl">
               <Image
+                unoptimized
                 className="object-contain w-40"
                 src={PersiaLogo}
                 alt="persia azma system logo"
@@ -51,6 +52,7 @@ export default function Header({ provider }: Props) {
           {provider === "datis" && (
             <Link href="/datis" className="btn btn-ghost text-xl">
               <Image
+                unoptimized
                 className="object-contain w-28"
                 src={DatisLogo}
                 alt="datis logo"

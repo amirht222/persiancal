@@ -6,6 +6,7 @@ export default function FeedbackPage() {
   return (
     <div className="container mx-auto px-12">
       <Image
+        unoptimized
         className="mx-auto w-1/2 max-h-[400px] object-contain"
         src={FeedbackImage}
         alt="feedback image"

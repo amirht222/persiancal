@@ -18,11 +18,13 @@ export default function Home() {
       </div> */}
       <div className="lg:hidden relative flex justify-center max-h-48">
         <Image
+          unoptimized
           className="w-full"
           src={MobileHeaderRec}
           alt="mobile header background"
         />
         <Image
+          unoptimized
           className="w-2/3 max-w-72 md:max-w-90 absolute -bottom-10"
           src={MobileHeaderSystem}
           alt="mobile header system"

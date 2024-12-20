@@ -11,6 +11,7 @@ export default function ProviderLinkBox(props: ProviderViewModel) {
       className="sm:basis-1/2 border min-h-72 border-[#D7D7D7] rounded-3xl  md:shadow-lg hover:scale-105 transition-transform px-8 py-6 hover:border-gray-300 hover:bg-gray-100"
     >
       <Image
+      unoptimized
         width={props.providerTitle === "persia" ? 220 : 150}
         height={props.providerTitle === "persia" ? 220 : 150}
         src={props.providerTitle === "persia" ? PersiaLogo : DatisLogo}
